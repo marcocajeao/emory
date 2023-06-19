@@ -34,10 +34,6 @@ button {
     animation: shake 0.3s;
 }
 
-input.error {
-    border: 2px solid red;
-}
-
 .error::placeholder {
     color: red;
 }
