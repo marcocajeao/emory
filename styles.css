@@ -1,0 +1,131 @@
+body {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin: 0;
+}
+
+h1 {
+    text-align: center;
+    font-size: calc(3vw);
+}
+
+h2 {
+    text-align: center;
+    font-size: calc(2vw);
+}
+
+input {
+    font-size: calc(1.5vw);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 320px;
+    padding: 10px;
+}
+
+button {
+    font-size: calc(1.5vw);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: cadetblue;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.error {
+    animation: shake 0.3s;
+}
+
+input.error {
+    border: 2px solid red;
+}
+
+.error::placeholder {
+    color: red;
+}
+
+@keyframes shake {
+    0% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.card {
+    width: 120px;
+    height: 120px;
+    background-color: #ccc;
+    display: flex;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 4vw;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
+
+.capitalize::placeholder {
+    text-transform: none;
+}
+
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    margin-top: 30px;
+}
+
+#feedback {
+    margin-top: 10px;
+    font-size: calc(2vw);
+    color: red;
+    text-align: center;
+}
+
+.blocked {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: calc(1.5vw);
+}
+
+th,
+td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: cadetblue;
+    color: white;
+}
