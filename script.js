@@ -139,7 +139,7 @@ const checkMatch = () => {
         feedback.innerHTML = 'Incorrect!';
         feedback.classList.add('error');
         feedback.addEventListener('animationend', removeShakeAnimation);
-        setTimeout(() => {
+        setTimeout((selectedCards) => {
             selectedCards.forEach(card => {
                 flipCard(card);
                 card.classList.remove('selected');
@@ -149,7 +149,7 @@ const checkMatch = () => {
             selectedCards = [];
             feedback.classList.remove('error');
             document.body.classList.remove('blocked');
-        }, 2000);
+        }, 2000, selectedCards);
     }
 
     if (matchedCards.length === totalCards) {
