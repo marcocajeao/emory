@@ -44,25 +44,25 @@ createDefaultRanking(defaultRankingData);
 
 // Show the ranking table
 const showRanking = () => {
-    let ranking = getRankingFromLocalStorage();
+    const ranking = getRankingFromLocalStorage();
     const tbody = document.querySelector('table tbody');
     tbody.innerHTML = '';
 
-    // Sort the ranking table by least time and least errors
-    ranking.sort((a, b) => a.time !== b.time ? a.time - b.time : a.errors - b.errors);
+    // Sort the ranking table by least errors and least time
+    const sortedRanking = ranking.sort((a, b) => a.errors !== b.errors ? a.errors - b.errors : a.time - b.time);
 
     let place = 1;
-    ranking.forEach(data => {
+    sortedRanking.forEach(data => {
         const row = document.createElement('tr');
         const positionCell = document.createElement('td');
         positionCell.textContent = place++;
         row.appendChild(positionCell);
 
-        for (const key in data) {
+        Object.values(data).forEach((value) => {
             const td = document.createElement('td');
-            td.textContent = data[key];
+            td.textContent = value;
             row.appendChild(td);
-        }
+        });
         tbody.appendChild(row);
     });
 };
@@ -93,11 +93,11 @@ const shuffleCards = (array) => {
 const renderGame = () => {
     gameBoard.innerHTML = '';
 
-    for (let i = 0; i < totalCards; i++) {
+    for (const [index, symbol] of cardPairs.entries()) {
         const card = document.createElement('div');
         card.classList.add('card');
-        card.dataset.symbol = cardPairs[i];
-        card.dataset.index = i;
+        card.dataset.symbol = symbol;
+        card.dataset.index = index;
         card.addEventListener('click', handleCardClick);
         gameBoard.appendChild(card);
     }
