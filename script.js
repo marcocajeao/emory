@@ -196,7 +196,7 @@ const removeShakeAnimation = () => {
 
 // End the game
 const endGame = () => {
-    const name = capitalizeText(document.getElementById('name').value);
+    const name = capitalizeText(document.getElementById('name').value).replace(/[^a-zA-Z]/g, ''); //Sanitize name
     const endTime = new Date().getTime();
     const gameTime = Math.round((endTime - startTime) / 1000);
     const errors = attempts - (totalCards / 2);
